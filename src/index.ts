@@ -13,11 +13,11 @@ var express = require("express");
 var app = express();
 //import thr router
 import { router} from './route/user.route';
-
 import { sequelize} from './util/database';
 // Using `public` for static files: http://expressjs.com/en/starter/static-files.html
 app.use(express.static("public"));
 // Use bodyParser to parse application/x-www-form-urlencoded form data
+app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 // add route
 app.use(router)
